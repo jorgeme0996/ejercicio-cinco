@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-input/paper-input.html">
+
+<dom-module id="ejercicio-cinco">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h1>[[title]]</h1>
+    <paper-input label="Paste a link of an image" value="{{link}}"></paper-input>
+    <button on-click="printImage">Print Image</button>
+    <div>
+      <paper-card image="[[image]]"></paper-card>
+    </div>
+    
+    
+  </template>
+
+  <script>
+    class EjercicioCinco extends Polymer.Element {
+      static get is() { return 'ejercicio-cinco'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Ejercicio 5'
+          },
+          link: {
+            type: String,
+            value: ''
+          }, 
+          image: {
+            type: String,
+            value:''
+          }
+        }
+      }
+
+      printImage(){
+        this.set('image', this.link);
+      }
+    }
+
+    window.customElements.define(EjercicioCinco.is, EjercicioCinco);
+  </script>
+</dom-module>
